@@ -3,14 +3,14 @@
 @section('content')
 <div class="page-header">
     <h3 class="page-title">
-        Detail Usaha
+        Detail Lapak
     </h3>
 </div>
 <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Detail Usaha {{ $usaha->user->nama}}</h4>
+                    <h4 class="card-title">Detail Lapak {{ $usaha->user->nama}}</h4>
                     
                   </div>
                   <div class="card-body">
@@ -41,7 +41,7 @@
                                         
                                     @endif
 
-                                    <form action="/p_admin/usaha/{{ $usaha->id}}" method="post" style="display:inline">
+                                    <form action="/p_admin/lapak/{{ $usaha->id}}" method="post" style="display:inline">
                                         @method('patch')
                                         @csrf
                                         @if($usaha->terverifikasi)

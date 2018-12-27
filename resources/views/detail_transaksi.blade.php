@@ -79,9 +79,9 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a href="{{ url('/produk/'.$t->produk->id) }}"><img src="{{ asset('storage/images/produk/'.$t->produk->gambar) }}" alt="{{ $t->produk->nama }}"></a>
+                                        <img src="{{ asset('storage/images/produk/'.$t->produk->gambar.'-1.png') }}" alt="{{ $t->produk->nama }}">
                                     </td>
-                                    <td><a href="{{ url('/produk/'.$t->produk->id) }}">{{ $t->produk->nama }}</a></td>
+                                    <td>{{ $t->produk->nama }}</td>
                                     <td>{{ $t->jumlah_beli }}</td>
                                     <td>Rp {{ $t->produk->harga }}</td>
                                     <td id="total_harga">Rp {{ $t->total_biaya }}</td>

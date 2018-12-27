@@ -8,8 +8,6 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/produk') }}">Produk</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/produk/'.$produk->id) }}">{{ $produk->nama }}</a></li>
                     <li aria-current="page" class="breadcrumb-item active">Beli</li>
                 </ol>
             </nav>
@@ -33,21 +31,21 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a href="{{ url('/produk/'.$produk->id) }}"><img src="{{ asset('storage/images/produk/'.$produk->gambar) }}" alt="{{ $produk->nama }}"></a>
+                                        <img src="{{ asset('storage/images/produk/'.$produk->gambar.'-1.png') }}" alt="{{ $produk->nama }}">
 
                                     </td>
-                                    <td><a href="{{ url('/produk/'.$produk->id) }}">{{ $produk->nama }}</a></td>
+                                    <td>{{ $produk->nama }}</td>
                                     <td>
-                                        <input type="number" style="width:70%" id="jml" name="jumlah_beli" min=1 value="1" class="form-control">
+                                    <input type="number" style="width:70%" id="jml" name="jumlah_beli" min=1 value="{{ $jml }}" class="form-control">
                                     </td>
                                     <td>Rp <span id="satuan_harga">{{ $produk->harga }}</span></td>
-                                    <td id="total_harga">Rp 0</td>
+                                    <td id="total_harga">Rp {{ $produk->harga * $jml }}</td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th colspan="4">Total</th>
-                                    <th id="total_harga2">Rp 0</th>
+                                    <th id="total_harga2">Rp {{ $produk->harga * $jml }}</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -73,8 +71,7 @@
                         <input type="text" name="nohp_tujuan" class="form-control" value="{{ Auth::user()->no_hp }}">
                     </div>
                     <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-                        <div class="left"><a href="{{ url('/produk') }}" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i>
-                                Lihat Produk lain</a></div>
+                        <div class="left"></div>
                         <div class="right">
                             <button type="submit" class="btn btn-primary">Proses Beli <i class="fa fa-chevron-right"></i></button>
                         </div>
@@ -96,7 +93,7 @@
                         <tbody>
                             <tr>
                                 <td>Subtotal Pesanan</td>
-                                <th id="total_harga3">Rp 0</th>
+                                <th id="total_harga3">Rp {{ $produk->harga * $jml }}</th>
                             </tr>
                             <tr>
                                 <td>Biaya Pengiriman</td>
@@ -104,7 +101,7 @@
                             </tr>
                             <tr class="total">
                                 <td>Total</td>
-                                <th id="biaya_transaksi">Rp 0</th>
+                                <th id="biaya_transaksi">Rp {{ $produk->harga * $jml }}</th>
                             </tr>
                         </tbody>
                     </table>

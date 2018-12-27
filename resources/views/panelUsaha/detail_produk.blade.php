@@ -22,7 +22,7 @@
                   <div class="card-body">
                         <div class="row">
                                 <div class="col-md-3">
-                                    <img src="{{ asset('storage/images/produk/'.$produk->gambar) }}" class="img-fluid" alt="Responsive image">
+                                    <img src="{{ asset('storage/images/produk/'.$produk->gambar.'-1.png') }}" class="img-fluid" alt="Responsive image">
                                 </div>
                             <div class="col-md-9">
                                 <h5 class="font-weight-bold">Nama:</h5>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Cookie;
 use App\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
 {
@@ -35,35 +37,31 @@ class ProdukController extends Controller
     {
         $p = Produk::findOrFail($id);
 
-        $op = Produk::where('usaha_id', $p->usaha_id)
-                    ->where('id','!=',$p->id)
-                    ->get();
-
-        return view('detail_produk', ['produk'=>$p, 'produklain'=>$op]);
+        return view('detail_produk', ['produk'=>$p]);
     }
 
-    public function cari($keyword)
-    {
-        $p = DB::table('produk')
-                ->select('produk.*')
-                ->join('usaha','usaha.id','=','produk.usaha_id')
-                ->where('usaha.terverifikasi', 1)
-                ->where('produk.nama','LIKE','%'.$keyword.'%')
-                ->orderBy('produk.created_at', 'desc')
-                ->get();
-
-        return view('cari', ['produk'=>$p, 'keyword'=>$keyword]);
-    }
-
-    public function postCari(Request $request)
-    {
-        return redirect('/cari/'.$request->keyword);
-    }
+    
 
     public function cart($id)
     {
         $p = Produk::findOrFail($id);
 
-        return view('cart', ['produk'=>$p]);
+        $jmlbeli = session()->get('jmlbeli');
+
+        return view('cart', ['produk'=>$p, 'jml'=>$jmlbeli]);
+    }
+
+    public function addCart(Request $request,$id)
+    {
+        
+        if ($request->jmlbeli == null){
+            $jmlbeli = 1;
+        }else{
+            $jmlbeli = $request->jmlbeli;
+        }
+        
+        // $c = Cookie('jmlbeli', $jmlbeli, true, time() + 86400);
+        session()->put('jmlbeli', $jmlbeli);
+        return redirect('/produk/'.$id.'/beli');
     }
 }

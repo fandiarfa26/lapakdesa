@@ -12,7 +12,7 @@
                 </ol>
             </nav>
             
-            <div class="box info-bar">
+            {{-- <div class="box info-bar">
                     <div class="row">
 
                         <div class="col-md-12 col-lg-4 products-showing">Pencarian produk dengan kata kunci : <b><em>{{ $keyword }}</em></b></div>
@@ -23,35 +23,50 @@
                     <div class="col-md-12 col-lg-4 products-showing">Terdapat <strong>{{count($produk)}}</strong> produk</div>
                     
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="row products">
-                @forelse ($produk as $p)
-                    <div class="col-lg-3 col-md-4">
-                        <div class="product">
-                            <div class="flip-container">
-                                <div class="flipper">
-                                <div class="front"><a href="{{ url('/produk/'.$p->id) }}"><img src="{{ asset('storage/images/produk/'.$p->gambar) }}" alt="" class="img-fluid"></a></div>
+            <div class="products">
+                
+                @forelse ($usaha as $k=>$u)
+                <div class="row">
+                        <div class="col-lg-2">
+                            <div class="box">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                    <a href="{{ url('/lapak/'.$u->username) }}" title="{{ $u->nama}}">
+                                            <img src="{{ asset('storage/images/user/'.$u->avatar) }}" alt="" class="img-fluid">
+                                        </a>
+                                    </div>
                                 </div>
-                            </div><a href="{{ url('/produk/'.$p->id) }}" class="invisible"><img src="{{ asset('storage/images/produk/'.$p->gambar) }}" alt="" class="img-fluid"></a>
-                            <div class="text">
-                                <h3><a href="{{ url('/produk/'.$p->id) }}">{{ $p->nama }}</a></h3>
-                                <p class="price">
-                                    Rp {{ $p->harga }}
-                                </p>
-                                <p class="buttons">
-                                    <a href="{{ url('/produk/'.$p->id) }}" class="btn btn-outline-secondary">Lihat detail</a>
-                                    <a href="{{ url('/produk/'.$p->id.'/beli') }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Beli</a>
-                                </p>
                             </div>
-                            <!-- /.text-->
                         </div>
-                        <!-- /.product            -->
-                    </div>  
+        
+                        <div class="col-lg-10">
+                            <div class="box">
+                                
+                                <div class="product-slider owl-carousel">
+                                    
+                                    
+
+                                        @foreach ($produk[$k] as $p)
+    
+
+                                        <div class="item" >
+                                        <a href="{{ url('/lapak/'.$u->username) }}">
+                                            <img src="{{ asset('storage/images/produk/'.$p->gambar.'-1.png') }}" alt="" class="img-fluid"  style="padding-right: 10px;">
+                                        </a>
+                                        </div>
+                                        @endforeach
+                                        
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
                 @empty
-                <div class="col-lg-3 col-md-4">
-                    <h4>Tidak ada produk</h4>
-                </div>
+                
                 @endforelse
                 
                 

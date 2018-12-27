@@ -105,8 +105,8 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ url('/p_admin/usaha') }}">
-                            <span class="menu-title">Usaha</span>
+                          <a class="nav-link" href="{{ url('/p_admin/lapak') }}">
+                            <span class="menu-title">Lapak</span>
                             <i class="mdi mdi-store menu-icon"></i>
                           </a>
                         </li>

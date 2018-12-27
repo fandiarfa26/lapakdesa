@@ -47,7 +47,8 @@ class ProdukController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'gambar' => 'required',
+            'gambar.*' => 'image|mimes:jpeg,png,jpg,gif'
         ]);
         if ($v->fails())
         {
@@ -56,17 +57,34 @@ class ProdukController extends Controller
                 'errors' => $v->errors()
             ], 422);
         }
+
+        
+        $nama = $request->nama;
+        $harga = $request->harga;
+        $deskripsi = $request->deskripsi;
+        $usaha_id = Auth::user()->usaha->id;
+
+        $no = 1;
+        $folder = rand();
+        $filename = 'produk-' . time();
+        
+        foreach ($request->file('gambar') as $file) {
+            $inc = $filename . '-' . $no++  . '.png';
+            //echo 'public/images/produk/'. $folder .'/'. $inc.'<br>';
+            $path = $file->storeAs('public/images/produk/'. $folder, $inc);
+        }
+        
         $produk = new Produk;
-        $produk->nama = $request->nama;
-        $produk->harga = $request->harga;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->usaha_id = Auth::user()->usaha->id;
+        $produk->nama = $nama;
+        $produk->harga = $harga;
+        $produk->deskripsi = $deskripsi;
+        $produk->usaha_id = $usaha_id;
+        $produk->gambar = $folder.'/'.$filename;
         
-        
-        $file = $request->file('gambar');
-        $filename = 'produk-' . time() . '.' . $file->getClientOriginalExtension();
-        $path = $file->storeAs('public/images/produk', $filename);
-        $produk->gambar = $filename;
+        // $file = $request->file('gambar');
+        // $filename = 'produk-' . time() . '.' . $file->getClientOriginalExtension();
+        // $path = $file->storeAs('public/images/produk', $filename);
+        // $produk->gambar = $filename;
 
         if ($produk->save()){
             swal()->position('top-right')->autoclose(3000)->toast()->success('Berhasil Tambah Produk!');

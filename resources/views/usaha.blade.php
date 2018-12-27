@@ -8,7 +8,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
-                    <li aria-current="page" class="breadcrumb-item active">Usaha</li>
+                    <li aria-current="page" class="breadcrumb-item active">Lapak</li>
                 </ol>
             </nav>
             <!--
@@ -34,7 +34,7 @@
                             </div>
                         </form>
                     </div> --}}
-                <div class="col-md-12 col-lg-4 products-showing">Terdapat <strong>{{ count($usaha) }}</strong> usaha yang tersedia</div>
+                <div class="col-md-12 col-lg-4 products-showing">Terdapat <strong>{{ count($usaha) }}</strong> lapak yang tersedia</div>
                 </div>
             </div>
 
@@ -44,15 +44,15 @@
                         <div class="product">
                             <div class="flip-container">
                                 <div class="flipper">
-                                <div class="front"><a href="{{ url('/usaha/'.$u->user->username) }}"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a></div>
+                                <div class="front"><a href="{{ url('/lapak/'.$u->user->username) }}"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a></div>
                                 </div>
-                            </div><a href="{{ url('/usaha/'.$u->user->username) }}" class="invisible"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a>
+                            </div><a href="{{ url('/lapak/'.$u->user->username) }}" class="invisible"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a>
                             <div class="text">
-                                <h3><a href="{{ url('/usaha/'.$u->user->username) }}">{{ $u->user->nama }}</a></h3>
+                                <h3><a href="{{ url('/lapak/'.$u->user->username) }}">{{ $u->user->nama }}</a></h3>
                                 {{-- <p class="price">
                                     <del></del>{{ $u->user->nama }}
                                 </p> --}}
-                                <p class="buttons"><a href="{{ url('/usaha/'.$u->user->username) }}" class="btn btn-outline-secondary btn-block">Lihat detail</a></p>
+                                <p class="buttons"><a href="{{ url('/lapak/'.$u->user->username) }}" class="btn btn-outline-secondary btn-block">Lihat detail</a></p>
                             </div>
                             <!-- /.text-->
                         </div>

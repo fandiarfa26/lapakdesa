@@ -9,8 +9,8 @@
     </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url('/p_admin/usaha') }}">Usaha</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Tabel Usaha</li>
+        <li class="breadcrumb-item"><a href="{{ url('/p_admin/lapak') }}">Lapak</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tabel Lapak</li>
         </ol>
     </nav>
 </div>
@@ -18,7 +18,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Tabel Usaha</h4>
+            <h4 class="card-title">Tabel Lapak</h4>
             <div class="table-responsive">
             <table class="table">
               <thead>
@@ -36,7 +36,7 @@
             <tr>
                 <td>{{$u->id}}</td>
                 <td>
-                <a href="/p_admin/usaha/{{ $u->id }}" data-toggle="tooltip" data-placement="top" title="Lihat Detail {{ $u->nama }}">
+                <a href="/p_admin/lapak/{{ $u->id }}" data-toggle="tooltip" data-placement="top" title="Lihat Detail {{ $u->nama }}">
                     {{$u->user->nama}}
                 </a>
                 </td>
@@ -51,7 +51,7 @@
                     @endif
                 </td>
                 <td>
-                        <form action="/p_admin/usaha/{{ $u->id}}" method="post" style="display:inline">
+                        <form action="/p_admin/lapak/{{ $u->id}}" method="post" style="display:inline">
                             @method('patch')
                             @csrf
 

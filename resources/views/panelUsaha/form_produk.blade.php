@@ -21,8 +21,13 @@
               @csrf
               <div class="col-lg-3">
                   <div class="form-group" id="input_gambar">
-                    <label for="gambar">Gambar Produk</label>
-                    <input type="file" class="form-control" name="gambar" id="gambar">
+                    <label for="gambar">Foto Produk (Utama)</label>
+                    <input type="file" class="form-control" name="gambar[]" id="gambar">
+                    <hr>
+                    <label>Foto Produk (Optional)</label>
+                    <input type="file" class="form-control" name="gambar[]" id="gambar">
+                    <input type="file" class="form-control" name="gambar[]" id="gambar">
+                    <input type="file" class="form-control" name="gambar[]" id="gambar">
                   </div>
               </div>
               <div class="col-lg-9">
@@ -40,6 +45,7 @@
                     </div>
                     <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     <a href="{{ url('/p_usaha/produk') }}" class="btn btn-light">Cancel</a>
+                    
               </div>
                 
               
@@ -57,7 +63,7 @@
           var reader = new FileReader();
           reader.onload = function(e) {
             $('#input_gambar + img').remove();
-            $('#input_gambar').after('<label>Preview</label><br><img src="'+e.target.result+'" class="img-fluid">');
+            $('#input_gambar').before('<label>Preview</label><br><img src="'+e.target.result+'" class="img-fluid">');
           }
           reader.readAsDataURL(input.files[0]);
         }

@@ -57,7 +57,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="mb-0">Berbagai Usaha Baru</h2>
+                <h2 class="mb-0">Berbagai Lapak Baru</h2>
               </div>
             </div>
           </div>
@@ -72,11 +72,11 @@
               <div class="product">
                 <div class="flip-container">
                   <div class="flipper">
-                      <div class="front"><a href="{{ url('/usaha/'.$u->user->username) }}"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a></div>
+                      <div class="front"><a href="{{ url('/lapak/'.$u->user->username) }}"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a></div>
                   </div>
-                </div><a href="{{ url('/usaha/'.$u->user->username) }}" class="invisible"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a>
+                </div><a href="{{ url('/lapak/'.$u->user->username) }}" class="invisible"><img src="{{ asset('storage/images/user/'.$u->user->avatar) }}" alt="" class="img-fluid"></a>
                 <div class="text">
-                    <h3><a href="{{ url('/usaha/'.$u->user->username) }}">{{ $u->user->nama }}</a></h3>
+                    <h3><a href="{{ url('/lapak/'.$u->user->username) }}">{{ $u->user->nama }}</a></h3>
                   {{-- <p class="price"> 
                     <del></del>$143.00
                   </p> --}}
@@ -120,14 +120,13 @@
               
               @foreach ($produk as $p)
                   
-              
               <div class="item">
                   <div class="product">
                       <div class="flip-container">
                           <div class="flipper">
-                          <div class="front"><a href="{{ url('/produk/'.$p->id) }}"><img src="{{ asset('storage/images/produk/'.$p->gambar) }}" alt="" class="img-fluid"></a></div>
+                          <div class="front"><a href="{{ url('/produk/'.$p->id) }}"><img src="{{ asset('storage/images/produk/'.$p->gambar.'-1.png') }}" alt="" class="img-fluid"></a></div>
                           </div>
-                      </div><a href="{{ url('/produk/'.$p->id) }}" class="invisible"><img src="{{ asset('storage/images/produk/'.$p->gambar) }}" alt="" class="img-fluid"></a>
+                      </div><a href="{{ url('/produk/'.$p->id) }}" class="invisible"><img src="{{ asset('storage/images/produk/'.$p->gambar.'-1.png') }}" alt="" class="img-fluid"></a>
                       <div class="text">
                           <h3><a href="{{ url('/produk/'.$p->id) }}">{{ $p->nama }}</a></h3>
                           <p class="price">

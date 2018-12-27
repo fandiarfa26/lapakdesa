@@ -17,7 +17,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title float-left">Tabel Produk</h4>
+            <h4 class="card-title float-left">Tabel Produk</h4>{{ rand() }}
             <a href="{{ url('/p_usaha/produk/form') }}" class="btn btn-success btn-sm btn-rounded float-right">
                 <i class="mdi mdi-plus"></i>
                 <span>Tambah</span>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ $p->id }}</td>
                         <td class="py-1">
-                        <img src="{{ asset('storage/images/produk/'.$p->gambar) }}" alt="image"/>
+                        <img src="{{ asset('storage/images/produk/'.$p->gambar.'-1.png') }}" alt="image"/>
                         </td>
                         <td>{{ $p->nama }}</td>
                         <td>{{ $p->harga }}</td>

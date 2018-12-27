@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="{{ asset('template1/css/style.default.css') }}">
     <link rel="stylesheet" href="{{ asset('template1/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('sweet_alert/dist/sweetalert2.min.css') }}">
-
+    
     <script src="{{ asset('template1/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.threesixty.js') }}"></script>
 {{-- 
     <style>
             * {
@@ -81,8 +82,8 @@
                 <div id="navigation" class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="{{ url('/usaha') }}" class="nav-link">Usaha</a></li>
-                        <li class="nav-item"><a href="{{ url('/produk') }}" class="nav-link">Produk</a></li>
+                        <li class="nav-item"><a href="{{ url('/lapak') }}" class="nav-link">Lapak</a></li>
+                        {{-- <li class="nav-item"><a href="{{ url('/produk') }}" class="nav-link">Produk</a></li> --}}
                         @auth
                             <li class="nav-item"><a href="{{ url('/transaksi') }}" class="nav-link">Transaksi</a></li>
                         @endauth
@@ -125,8 +126,8 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="mb-3">Halaman</h4>
                     <ul class="list-unstyled">
-                        <li><a href="{{ url('/usaha') }}">Usaha</a></li>
-                        <li><a href="{{ url('/produk') }}">Produk</a></li>
+                        <li><a href="{{ url('/lapak') }}">Lapak</a></li>
+                        {{-- <li><a href="{{ url('/produk') }}">Produk</a></li> --}}
                         <li><a href="{{ url('/about') }}">Tentang Kami</a></li>
                     </ul>
                 </div>
