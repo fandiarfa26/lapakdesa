@@ -5,9 +5,9 @@
         <div class="row">
           <div class="col-md-12">
             <div id="main-slider" class="owl-carousel owl-theme">
-              <div class="item"><img src="{{ asset('storage/images/web/slide1.png') }}" alt="" class="img-fluid"></div>
-              <div class="item"><img src="{{ asset('storage/images/web/slide2.png') }}" alt="" class="img-fluid"></div>
-              <div class="item"><img src="{{ asset('storage/images/web/slide3.png') }}" alt="" class="img-fluid"></div>
+              <div class="item"><img src="{{ asset('images/slide-1.jpg') }}" alt="" class="img-fluid"></div>
+              <div class="item"><img src="{{ asset('images/slide-2.jpg') }}" alt="" class="img-fluid"></div>
+              <div class="item"><img src="{{ asset('images/slide-3.jpg') }}" alt="" class="img-fluid"></div>
             </div>
             <!-- /#main-slider-->
           </div>

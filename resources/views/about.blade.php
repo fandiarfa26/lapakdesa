@@ -14,7 +14,7 @@
 
             <div class="box row">
                 <div class="col-lg-3">
-                    <img src="{{ asset('storage/images/web/lapakdesa_logo1.png') }}" alt="" class="img-fluid">
+                    <img src="{{ asset('images/logo_text.png') }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-lg-9">
                     <h1>LapakDesa</h1>

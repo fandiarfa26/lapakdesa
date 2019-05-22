@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Style -->
+    <link rel="shortcut icon" href="{{ asset('images/logo_only.ico') }}">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ asset('template1/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template1/vendor/font-awesome/css/font-awesome.min.css') }}">
@@ -71,7 +72,7 @@
 
         </div>
         <nav class="navbar navbar-expand-lg">
-        <div class="container"><a href="{{ url('/') }}" class="navbar-brand home"><img src="{{ asset('storage/images/web/lapakdesa_logo1.png') }}" style="height:50px" alt="LapakDesa logo" class="d-none d-md-inline-block"><img src="{{ asset('storage/images/web/lapakdesa_logo1.png') }}" alt="LapakDesa logo" style="height:50px" class="d-inline-block d-md-none"><span class="sr-only">{{
+        <div class="container"><a href="{{ url('/') }}" class="navbar-brand home"><img src="{{ asset('images/logo_text.png') }}" style="height:50px" alt="LapakDesa logo" class="d-none d-md-inline-block"><img src="{{ asset('storage/images/web/lapakdesa_logo1.png') }}" alt="LapakDesa logo" style="height:50px" class="d-inline-block d-md-none"><span class="sr-only">{{
                         config('app.name', 'Laravel') }} - kembali ke halaman awal</span></a>
                 <div class="navbar-buttons">
                     <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span
